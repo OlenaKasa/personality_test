@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест на Вимірювання Масштабу Особистості Олена Казакевич</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(https://www.kazakevichphoto.com.ua/wp-content/uploads/2020/03/0008_-679x1024.jpg); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: #333;
+        }
+        h1, h2 {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8); 
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .instructions {
+            text-align: center;
+            font-size: 1.1em;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            color: #555;
+        }
+        .question {
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .submit-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .chart-container {
+            max-width: 600px;
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Тест на Вимірювання Масштабу Особистості Анюти Казакевич</h1>
+  <div class="instructions">
+        Введіть у поля цифри від 1 до 5:<br>
+        <label><strong>1</strong> — точно Ні,</label><br> 
+		<label><strong>2</strong> — скоріше Ні,</label><br>
+		<label><strong>3</strong> — нейтрально,</label><br>
+		<label><strong>4</strong> — скоріше Так,</label><br> 
+		<label><strong>5</strong> — абсолютно Так</label><br>
+    </div>
+    <form id="testForm">
+        <!-- Блок 1 -->
+        <h2>Блок 1: Самореалізація</h2>
+        <div class="question">
+            <label>1. Я активно працюю над розвитком своїх талантів:</label><br>
+            <input type="number" id="block1_q1" min="1" max="5" required>
+        </div>
+        <div class="question">
+            <label>2. Я бачу, як мої здібності трансформуються у досягнення:</label><br>
+            <input type="number" id="block1_q2" min="1" max="5" required>
+        </div>
+        <div class="question">
+            <label>3. Я використовую свої сильні сторони для досягнення цілей:</label><br>
+            <input type="number" id="block1_q3" min="1" max="5" required>
+        </div>
+        <div class="question">
+            <label>4. Я відчуваю, що розкриваю свій потенціал у поточній діяльності:</label><br>
+            <input type="number" id="block1_q4" min="1" max="5" required>
+        </div>
+        <div class="question">
+            <label>5. Я відкритий(а) до нових можливостей, які можуть розкрити мій потенціал:</label><br>
+            <input type="number" id="block1_q5" min="1" max="5" required>
+        </div>
+
+        <!-- Блок 2 -->
+        <h2>Блок 2: Вплив на оточення</h2>
+        <div class="question">
+            <label>6. Мої дії надихають інших до розвитку або змін:</label><br>
+            <input type="number" id="block2_q1" min="1" max="5" required>
+        </div>
+        <div class="question">
+            <label>7. Я відчуваю, що мій внесок має значення для людей навколо мене:</label><br>
+            <input type="number" id="block2_q2" min="1" max="5" required>
+        </div>
+        <div class="question">
+            <label>8. Я можу об’єднати людей навколо спільної ідеї або мети:</label><br>
+            <input type="number" id="block2_q3" min="1" max="5" required>
+        </div>
+        <div class="question">
+            <label>9. Люди звертаються до мене за порадою чи підтримкою:</label><br>
+            <input type="number" id="block2_q4" min="1" max="5" required>
+        </div>
+        <div class="question">
+            <label>10. Я відчуваю, що маю позитивний вплив на суспільство:</label><br>
+            <input type="number" id="block2_q5" min="1" max="5" required>
+        </div>
+
+        <!-- Блок 3 -->
+        <h2>Блок 3: Емоційна зрілість</h2>
+        <div class="question">
+            <label>11. Я можу зберігати спокій у складних ситуаціях:</label><br>
+            <input type="number" id="block3_q1" min="1" max="5" required>
+        </div>
+        <div class="question">
+            <label>12. Я розумію та приймаю свої емоції:</label><br>
+            <input type="number" id="block3_q2" min="1" max="5" required>
+        </div>
+        <div class="question">
+            <label>13. Я можу поставити себе на місце іншої людини (емпатія):</label><br>
+            <input type="number" id="block3_q3" min="1" max="5" required>
+        </div>
+        <div class="question">
+            <label>14. Я здатен(на) аналізувати свої помилки та робити висновки:</label><br>
+            <input type="number" id="block3_q4" min="1" max="5" required>
+        </div>
+        <div class="question">
+            <label>15. Мені вдається зберігати внутрішню рівновагу навіть у стресових ситуаціях:</label><br>
+            <input type="number" id="block3_q5" min="1" max="5" required>
+        </div>
+
+        <!-- Блок 4 -->
+        <h2>Блок 4: Гармонія сфер життя</h2>
+        <div class="question">
+            <label>16. Я задоволений(а) балансом між роботою, особистим життям і дозвіллям:</label><br>
+            <input type="number" id="block4_q1" min="1" max="5" required>
+        </div>
+        <div class="question">
+            <label>17. Я приділяю достатньо часу своєму здоров’ю та саморозвитку:</label><br>
+            <input type="number" id="block4_q2" min="1" max="5" required>
+        </div>
+        <div class="question">
+            <label>18. Мої цінності та дії узгоджуються між собою:</label><br>
+            <input type="number" id="block4_q3" min="1" max="5" required>
+        </div>
+        <div class="question">
+            <label>19. Я відчуваю, що встигаю насолоджуватися життям і розвиватися одночасно:</label><br>
+            <input type="number" id="block4_q4" min="1" max="5" required>
+        </div>
+        <div class="question">
+            <label>20. У різних сферах мого життя (робота, сім’я, хобі) я досягаю гармонії:</label><br>
+            <input type="number" id="block4_q5" min="1" max="5" required>
+        </div>
+
+        <!-- Блок 5 -->
+        <h2>Блок 5: Масштаб мислення</h2>
+        <div class="question">
+            <label>21. Я часто думаю про те, як мої дії впливають на довгострокову перспективу:</label><br>
+            <input type="number" id="block5_q1" min="1" max="5" required>
+        </div>
+        <div class="question">
+            <label>22. Я здатен(на) розглядати проблеми з різних точок зору:</label><br>
+            <input type="number" id="block5_q2" min="1" max="5" required>
+        </div>
+        <div class="question">
+            <label>23. Мене цікавлять глобальні проблеми та їх вирішення:</label><br>
+            <input type="number" id="block5_q3" min="1" max="5" required>
+        </div>
+        <div class="question">
+            <label>24. Я можу мислити стратегічно та планувати свої дії на майбутнє:</label><br>
+            <input type="number" id="block5_q4" min="1" max="5" required>
+        </div>
+        <div class="question">
+            <label>25. Я відчуваю, що мої ідеї можуть впливати на ширший контекст, ніж моє найближче оточення:</label><br>
+            <input type="number" id="block5_q5" min="1" max="5" required>
+        </div>
+
+        <button type="button" class="submit-button" onclick="calculateResults()">Отримати результат</button>
+    </form>
+    <div id="result" class="result"></div>
+    <div class="chart-container">
+        <canvas id="resultChart"></canvas>
+    </div>
+
+    <script>
+        function calculateResults() {
+            const scores = [0, 0, 0, 0, 0];
+            for (let i = 1; i <= 5; i++) {
+                scores[0] += parseInt(document.getElementById(`block1_q${i}`).value) || 0;
+                scores[1] += parseInt(document.getElementById(`block2_q${i}`).value) || 0;
+                scores[2] += parseInt(document.getElementById(`block3_q${i}`).value) || 0;
+                scores[3] += parseInt(document.getElementById(`block4_q${i}`).value) || 0;
+                scores[4] += parseInt(document.getElementById(`block5_q${i}`).value) || 0;
+            }
+
+            const feedback = (score) => {
+                if (score <= 10) return "Початківець - Ви на початку шляху до гармонійного життя";
+                if (score <= 15) return "Упевнений прагматик - Ви вже почали діяти, щоб жити та розвиватися гармонійно";
+                if (score <= 20) return "Свідома особистість - Ви вже майже дісталися кращої версії себе";
+                return "Найкраща версія себе";
+            };
+
+            document.getElementById("result").innerHTML = `
+                <h2>Ваші результати:</h2>
+                ${scores.map((score, index) => `
+                    <p><strong>Блок ${index + 1}:</strong> ${score} — ${feedback(score)}</p>
+                `).join("")}
+            `;
+
+            const ctx = document.getElementById("resultChart").getContext("2d");
+            new Chart(ctx, {
+                type: "radar",
+                data: {
+                    labels: ["Самореалізація", "Вплив на оточення", "Емоційна зрілість", "Гармонія сфер життя", "Масштаб мислення"],
+                    datasets: [{
+                        label: "Ваші результати",
+                        data: scores,
+                        backgroundColor: "rgba(54, 162, 235, 0.2)",
+                        borderColor: "rgba(54, 162, 235, 1)",
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 25
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
